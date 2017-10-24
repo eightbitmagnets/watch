@@ -3,16 +3,16 @@
 <body>
 
 <?php
-  chdir("video");
-  $d = dir(getcwd());
-
-  echo "Handle: " . $d->handle . "<br>";
-  echo "Path: " . $d->path . "<br>";
-
-  while (($file = $d->read()) !== false){ 
-    echo "filename: " . $file . "<br>"; 
-  } 
-  $d->close();
+ $series = array
+   (
+   array('title'=>'The Walking Dead', 'thumb'=>'thumbs/twd.jpg'),
+   array('title'=>'Better Call Saul', 'thumb'=>'thumbs/bcs.jpg')
+ );
+  
+  echo '<h1>' . $series[0]['title'] . '</h1>' . '<br>';
+  echo '<img src="' . $series[0]['thumb'] . '" />' . '<br>';
+  echo '<h1>' . $series[1]['title'] . '</h1>' . '<br>';
+  echo '<img src="' . $series[1]['thumb'] . '" />' . '<br>';
 ?> 
 
 </body>
