@@ -6,28 +6,27 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
   function loadVid(videoFileName) {
-    $('.container').append('<video width="100%" height="auto" controls><source src="video/' + videoFileName + '" type="video/mp4"></video>');
+    $('.container').append('<video width="100%" height="auto" controls><source src="' + videoFileName + '" type="video/mp4"></video>');
   };
   </script>
   <?php
     function writeVidList() {
-      chdir('video');
-      $d = dir(getcwd());
-      while (($file = $d->read()) !== false) {
-        if (strlen($file) > 2) {
+      $videoDir = opendir('video');
+      while (($file = readdir($videoDir)) !== false) {
+        if ($file != '.' && $file != '..') {
           $removeExt = explode('.mp4',$file);
           $removeSpaces = explode(' ',$file);
           $extRemoved = implode('',$removeExt);
-          $addHtmlSpaces = implode('%20;',$removeSpaces);
-          echo '<li onclick="loadVid(' . $addHtmlSpaces . ')">' . $extRemoved . "</li>\n\t";
+          $addHtmlSpaces = implode('%20',$removeSpaces);
+          echo '<li onclick="loadVid(' . $file . ')">' . $extRemoved . "</li>\n\t";
         }
       }
-    }
+    }f
   ?>
 </head>
 <body>
+  <div class="container"></div>
   <ul>
     <?php writeVidList() ?></ul>
-  <div class="container"></div>
 </body>
 </html>
