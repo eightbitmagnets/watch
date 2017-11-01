@@ -6,9 +6,15 @@ ul {
 }
 ul li {
   list-style:none;
+  cursor:pointer;
 }
 .container {
   margin:0 auto;
-  width:80%;
+  width:100%;
   height:auto;
+}
+.container video {
+  height:auto;
+  width:auto;
+  margin:0 auto;
 }
