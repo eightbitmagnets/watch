@@ -14,7 +14,7 @@ ul li {
   height:auto;
 }
 .container video {
-  height:auto;
-  width:auto;
+  height:480px;
+  width:854px;
   margin:0 auto;
 }
